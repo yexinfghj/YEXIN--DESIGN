@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>叶欣设计作品集 | YE XIN PORTFOLIO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&family=Noto+Sans+SC:wght@200;300;400;500;600&family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@300;400&display=swap');
+        
+        .font-display-en { font-family: 'Outfit', sans-serif; }
+        .font-display-cn { font-family: 'Noto Sans SC', sans-serif; }
+        .font-serif-cn { font-family: 'Noto Serif SC', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* 缓慢放大动画，营造电影开场感 */
+        @keyframes slow-pan {
+          0% { transform: scale(1); }
+          100% { transform: scale(1.1); }
+        }
+        .animate-slow-pan {
+          animation: slow-pan 20s ease-out forwards;
+        }
+
+        /* 噪点覆盖层，增加胶片物理质感 */
+        .noise-overlay {
+          position: fixed; inset: 0; pointer-events: none; z-index: 50; opacity: 0.04;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 20s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-[#050505] text-[#EAE8E3] font-sans selection:bg-[#A39171] selection:text-[#050505]">
+
+    <div class="noise-overlay"></div>
+
+    <!-- 极简顶部导航 -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-40 transition-all duration-700 py-8 bg-gradient-to-b from-black/50 to-transparent">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <div class="font-display-en text-xl md:text-2xl tracking-[0.2em] uppercase">
+                YE XIN <span class="font-display-cn text-sm ml-2 text-[#A39171]">叶欣设计</span>
+            </div>
+            <nav class="hidden md:flex space-x-12 text-xs uppercase tracking-[0.15em] font-sans text-gray-400">
+                <a href="#work" class="hover:text-[#A39171] transition-colors">作品集 Works</a>
+                <a href="#about" class="hover:text-[#A39171] transition-colors">关于我 About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 首屏：电影级沉浸式开场 -->
+    <section class="relative h-screen w-full overflow-hidden flex flex-col justify-center items-center text-center">
+        <!-- 首屏背景图 -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <div class="w-full h-full bg-[#050505]">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=2000" alt="Background" class="w-full h-full object-cover opacity-30 animate-slow-pan filter grayscale">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/40 to-[#050505]"></div>
+        </div>
+
+        <!-- 首屏核心文字 -->
+        <div class="z-10 px-4 mt-20">
+            <p class="font-display-en text-[#A39171] text-sm md:text-lg tracking-[0.4em] uppercase mb-6">Ye Xin Design Studio</p>
+            <h1 class="font-serif-cn text-5xl md:text-8xl lg:text-[7.5rem] font-bold tracking-widest leading-[1.1] mb-6 drop-shadow-2xl text-white">
+                叶欣个人<br/>设计作品集
+            </h1>
+            <div class="flex items-center justify-center space-x-4 mt-8 text-gray-400">
+                <div class="w-12 h-[1px] bg-gray-600"></div>
+                <p class="font-sans text-xs tracking-[0.2em] uppercase">Portfolio 2026</p>
+                <div class="w-12 h-[1px] bg-gray-600"></div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 z-10 flex flex-col items-center animate-pulse text-gray-500">
+            <p class="font-sans text-[10px] tracking-[0.2em] uppercase mb-4">滑动阅览</p>
+            <div class="w-[1px] h-16 bg-gradient-to-b from-gray-500 to-transparent"></div>
+        </div>
+    </section>
+
+    <!-- 跑马灯 / 过渡带 -->
+    <div class="py-6 border-y border-white/5 bg-[#0a0a0a] overflow-hidden whitespace-nowrap flex items-center">
+        <div class="animate-marquee flex space-x-8 font-display-en text-xl tracking-[0.3em] text-gray-500 uppercase">
+            <span>Brand Identity</span><span class="text-[#A39171]">✦</span>
+            <span>Exhibition Space</span><span class="text-[#A39171]">✦</span>
+            <span>Landscape Installation</span><span class="text-[#A39171]">✦</span>
+            <span>Event Planning</span><span class="text-[#A39171]">✦</span>
+            <span>AI Generative Art</span><span class="text-[#A39171]">✦</span>
+            <span>Brand Identity</span><span class="text-[#A39171]">✦</span>
+            <span>Exhibition Space</span>
+        </div>
+    </div>
+
+    <!-- 作品展示区：高端侧边栏分离布局 -->
+    <section id="work" class="py-24 px-6 md:px-12 container mx-auto max-w-[1400px]">
+        <div class="flex flex-col lg:flex-row gap-16 lg:gap-24 relative">
+            
+            <!-- 左侧：固定吸顶的分类菜单 -->
+            <div class="lg:w-1/4 hidden lg:block">
+                <div class="sticky top-32">
+                    <h2 class="font-display-cn text-4xl md:text-5xl font-light mb-2">精选项目</h2>
+                    <p class="font-display-en text-xl text-[#A39171] tracking-widest mb-12">Selected Works</p>
+                    
+                    <div class="flex flex-col space-y-6" id="category-menu">
+                        <!-- 菜单项由 JS 动态控制高亮 -->
+                        <button data-category="VI设计" class="category-btn text-left group flex items-center space-x-4 transition-colors duration-500 text-white">
+                            <span class="category-line h-[1px] transition-all duration-500 bg-[#A39171] w-12"></span>
+                            <span class="font-display-cn text-lg tracking-wider">VI设计</span>
+                        </button>
+                        <button data-category="展厅展览" class="category-btn text-left group flex items-center space-x-4 transition-colors duration-500 text-gray-600 hover:text-gray-300">
+                            <span class="category-line h-[1px] transition-all duration-500 bg-transparent group-hover:bg-gray-600 w-8"></span>
+                            <span class="font-display-cn text-lg tracking-wider">展厅展览</span>
+                        </button>
+                        <button data-category="景观美陈" class="category-btn text-left group flex items-center space-x-4 transition-colors duration-500 text-gray-600 hover:text-gray-300">
+                            <span class="category-line h-[1px] transition-all duration-500 bg-transparent group-hover:bg-gray-600 w-8"></span>
+                            <span class="font-display-cn text-lg tracking-wider">景观美陈</span>
+                        </button>
+                        <button data-category="活动策划" class="category-btn text-left group flex items-center space-x-4 transition-colors duration-500 text-gray-600 hover:text-gray-300">
+                            <span class="category-line h-[1px] transition-all duration-500 bg-transparent group-hover:bg-gray-600 w-8"></span>
+                            <span class="font-display-cn text-lg tracking-wider">活动策划</span>
+                        </button>
+                        <button data-category="AI绘画" class="category-btn text-left group flex items-center space-x-4 transition-colors duration-500 text-gray-600 hover:text-gray-300">
+                            <span class="category-line h-[1px] transition-all duration-500 bg-transparent group-hover:bg-gray-600 w-8"></span>
+                            <span class="font-display-cn text-lg tracking-wider">AI绘画</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧：分组长列表滑动 -->
+            <div class="lg:w-3/4 flex flex-col space-y-32">
+                
+                <!-- VI设计 -->
+                <div id="section-VI设计" class="scroll-mt-32">
+                    <div class="mb-12 border-b border-white/10 pb-6 flex justify-between items-end">
+                        <h3 class="font-display-cn text-3xl font-light text-[#A39171]">VI设计</h3>
+                        <span class="font-display-en text-sm text-gray-600 tracking-[0.2em] uppercase lg:hidden">2 Projects</span>
+                    </div>
+                    <div class="flex flex-col space-y-24">
+                        <div class="group cursor-pointer">
+                            <div class="relative w-full aspect-[16/9] overflow-hidden bg-[#111] mb-6">
+                                <img src="images/vi 2(1).png" alt="党政机关 品牌设计" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-[1.03] filter brightness-90 group-hover:brightness-100">
+                                <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
+                                    <div class="w-16 h-16 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex justify-center items-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                        <i data-lucide="arrow-right" class="text-white w-6 h-6"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-end border-b border-white/10 pb-6">
+                                <div>
+                                    <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-[#A39171] mb-3 block">VI设计</span>
+                                    <h3 class="font-display-cn text-2xl md:text-3xl font-medium tracking-wide group-hover:text-[#A39171] transition-colors">党政机关 品牌设计</h3>
+                                    <p class="font-display-cn text-gray-500 mt-2 font-light">解析单位需求 量身定制 党建品牌</p>
+                                </div>
+                                <span class="font-display-en text-xl text-gray-600 mt-4 md:mt-0">2025</span>
+                            </div>
+                        </div>
+                        <div class="group cursor-pointer">
+                            <div class="relative w-full aspect-[16/9] overflow-hidden bg-[#111] mb-6">
+                                <img src="images/vi (3).jpg" alt="商业品牌设计" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-[1.03] filter brightness-90 group-hover:brightness-100">
+                                <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
+                                    <div class="w-16 h-16 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex justify-center items-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                        <i data-lucide="arrow-right" class="text-white w-6 h-6"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-end border-b border-white/10 pb-6">
+                                <div>
+                                    <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-[#A39171] mb-3 block">VI设计</span>
+                                    <h3 class="font-display-cn text-2xl md:text-3xl font-medium tracking-wide group-hover:text-[#A39171] transition-colors">商业品牌设计</h3>
+                                    <p class="font-display-cn text-gray-500 mt-2 font-light">黄山文创伴手礼店设计及落地</p>
+                                </div>
+                                <span class="font-display-en text-xl text-gray-600 mt-4 md:mt-0">2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 展厅展览 -->
+                <div id="section-展厅展览" class="scroll-mt-32">
+                    <div class="mb-12 border-b border-white/10 pb-6 flex justify-between items-end">
+                        <h3 class="font-display-cn text-3xl font-light text-[#A39171]">展厅展览</h3>
+                        <span class="font-display-en text-sm text-gray-600 tracking-[0.2em] uppercase lg:hidden">2 Projects</span>
+                    </div>
+                    <div class="flex flex-col space-y-24">
+                        <div class="group cursor-pointer">
+                            <div class="relative w-full aspect-[16/9] overflow-hidden bg-[#111] mb-6">
+                                <img src="images/展厅1.jpeg" alt="黄山好人馆" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-[1.03] filter brightness-90 group-hover:brightness-100">
+                                <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
+                                    <div class="w-16 h-16 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex justify-center items-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                        <i data-lucide="arrow-right" class="text-white w-6 h-6"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-end border-b border-white/10 pb-6">
+                                <div>
+                                    <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-[#A39171] mb-3 block">展厅展览</span>
+                                    <h3 class="font-display-cn text-2xl md:text-3xl font-medium tracking-wide group-hover:text-[#A39171] transition-colors">党政展馆·阵地打造</h3>
+                                    <p class="font-display-cn text-gray-500 mt-2 font-light">从设计到落地一体化全流程服务：黄山好人馆、红色物业展厅、徽聚驿站、老街/黎阳党群服务中心、徽菜博物馆等项目</p>
+                                </div>
+                                <span class="font-display-en text-xl text-gray-600 mt-4 md:mt-0">2024</span>
+                            </div>
+                        </div>
+                        <div class="group cursor-pointer">
+                            <div class="relative w-full aspect-[16/9] overflow-hidden bg-[#111] mb-6">
+                                <img src="images/展厅 (2).JPG" alt="企业展厅打造" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-[1.03] filter brightness-90 group-hover:brightness-100">
+                                <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
+                                    <div class="w-16 h-16 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex justify-center items-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                        <i data-lucide="arrow-right" class="text-white w-6 h-6"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-end border-b border-white/10 pb-6">
+                                <div>
+                                    <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-[#A39171] mb-3 block">展厅展览</span>
+                                    <h3 class="font-display-cn text-2xl md:text-3xl font-medium tracking-wide group-hover:text-[#A39171] transition-colors">企业展厅打造</h3>
+                                    <p class="font-display-cn text-gray-500 mt-2 font-light">打造融入办公空间的展厅艺术：金太阳党群服务中心、科技企业展厅等项目，为客户提供专业的展厅设计及落地服务，提升客户的品牌形象和客户满意度</p>
+                                </div>
+                                <span class="font-display-en text-xl text-gray-600 mt-4 md:mt-0">2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 景观美陈 -->
+                <div id="section-景观美陈" class="scroll-mt-32">
+                    <div class="mb-12 border-b border-white/10 pb-6 flex justify-between items-end">
+                        <h3 class="font-display-cn text-3xl font-light text-[#A39171]">景观美陈</h3>
+                        <span class="font-display-en text-sm text-gray-600 tracking-[0.2em] uppercase lg:hidden">2 Projects</span>
+                    </div>
+                    <div class="flex flex-col space-y-24">
+                        <div class="group cursor-pointer">
+                            <div class="relative w-full aspect-[16/9] overflow-hidden bg-[#111] mb-6">
+                                <img src="images/景观 (1).jpg" alt="景观标识" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-[1.03] filter brightness-90 group-hover:brightness-100">
+                                <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
+                                    <div class="w-16 h-16 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex justify-center items-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                        <i data-lucide="arrow-right" class="text-white w-6 h-6"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-end border-b border-white/10 pb-6">
+                                <div>
+                                    <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-[#A39171] mb-3 block">景观美陈</span>
+                                    <h3 class="font-display-cn text-2xl md:text-3xl font-medium tracking-wide group-hover:text-[#A39171] transition-colors">景观标识</h3>
+                                    <p class="font-display-cn text-gray-500 mt-2 font-light">室外的大型空间视觉焦点：不再更新，内容做过太多了……</p>
+                                </div>
+                                <span class="font-display-en text-xl text-gray-600 mt-4 md:mt-0">2025</span>
+                            </div>
+                        </div>
+                        <div class="group cursor-pointer">
+                            <div class="relative w-full aspect-[16/9] overflow-hidden bg-[#111] mb-6">
+                                <img src="images/景观 (3).jpg" alt="万物生·户外装置" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-[1.03] filter brightness-90 group-hover:brightness-100">
+                                <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
+                                    <div class="w-16 h-16 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex justify-center items-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                        <i data-lucide="arrow-right" class="text-white w-6 h-6"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-end border-b border-white/10 pb-6">
+                                <div>
+                                    <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-[#A39171] mb-3 block">景观美陈</span>
+                                    <h3 class="font-display-cn text-2xl md:text-3xl font-medium tracking-wide group-hover:text-[#A39171] transition-colors">文化展陈</h3>
+                                    <p class="font-display-cn text-gray-500 mt-2 font-light">室外的宣教阵地布置：不再更新，内容做过太多了……</p>
+                                </div>
+                                <span class="font-display-en text-xl text-gray-600 mt-4 md:mt-0">2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 活动策划 -->
+                <div id="section-活动策划" class="scroll-mt-32">
+                    <div class="mb-12 border-b border-white/10 pb-6 flex justify-between items-end">
+                        <h3 class="font-display-cn text-3xl font-light text-[#A39171]">活动策划</h3>
+                        <span class="font-display-en text-sm text-gray-600 tracking-[0.2em] uppercase lg:hidden">2 Projects</span>
+                    </div>
+                    <div class="flex flex-col space-y-24">
+                        <div class="group cursor-pointer">
+                            <div class="relative w-full aspect-[16/9] overflow-hidden bg-[#111] mb-6">
+                                <img src="images/活动 (1).jpeg" alt="政企活动布置" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-[1.03] filter brightness-90 group-hover:brightness-100">
+                                <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
+                                    <div class="w-16 h-16 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex justify-center items-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                        <i data-lucide="arrow-right" class="text-white w-6 h-6"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-end border-b border-white/10 pb-6">
+                                <div>
+                                    <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-[#A39171] mb-3 block">活动策划</span>
+                                    <h3 class="font-display-cn text-2xl md:text-3xl font-medium tracking-wide group-hover:text-[#A39171] transition-colors">政企活动布置</h3>
+                                    <p class="font-display-cn text-gray-500 mt-2 font-light">全流程设计落地</p>
+                                </div>
+                                <span class="font-display-en text-xl text-gray-600 mt-4 md:mt-0">2024</span>
+                            </div>
+                        </div>
+                        <div class="group cursor-pointer">
+                            <div class="relative w-full aspect-[16/9] overflow-hidden bg-[#111] mb-6">
+                                <img src="images/活动2定.jpg" alt="云端漫步·新品发布会" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-[1.03] filter brightness-90 group-hover:brightness-100">
+                                <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
+                                    <div class="w-16 h-16 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex justify-center items-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                        <i data-lucide="arrow-right" class="text-white w-6 h-6"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-end border-b border-white/10 pb-6">
+                                <div>
+                                    <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-[#A39171] mb-3 block">跨年音乐节</span>
+                                    <h3 class="font-display-cn text-2xl md:text-3xl font-medium tracking-wide group-hover:text-[#A39171] transition-colors">文旅活动策划</h3>
+                                    <p class="font-display-cn text-gray-500 mt-2 font-light">结合乡村与跨年，打造独特的跨年音乐节</p>
+                                </div>
+                                <span class="font-display-en text-xl text-gray-600 mt-4 md:mt-0">2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI绘画 -->
+                <div id="section-AI绘画" class="scroll-mt-32">
+                    <div class="mb-12 border-b border-white/10 pb-6 flex justify-between items-end">
+                        <h3 class="font-display-cn text-3xl font-light text-[#A39171]">AI绘画</h3>
+                        <span class="font-display-en text-sm text-gray-600 tracking-[0.2em] uppercase lg:hidden">2 Projects</span>
+                    </div>
+                    <div class="flex flex-col space-y-24">
+                        <div class="group cursor-pointer">
+                            <div class="relative w-full aspect-[16/9] overflow-hidden bg-[#111] mb-6">
+                                <img src="images/AI(1).png" alt="AI漫剧" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-[1.03] filter brightness-90 group-hover:brightness-100">
+                                <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
+                                    <div class="w-16 h-16 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex justify-center items-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                        <i data-lucide="arrow-right" class="text-white w-6 h-6"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-end border-b border-white/10 pb-6">
+                                <div>
+                                    <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-[#A39171] mb-3 block">AI绘画</span>
+                                    <h3 class="font-display-cn text-2xl md:text-3xl font-medium tracking-wide group-hover:text-[#A39171] transition-colors">AI漫剧</h3>
+                                    <p class="font-display-cn text-gray-500 mt-2 font-light">基于AI的漫剧创作</p>
+                                </div>
+                                <span class="font-display-en text-xl text-gray-600 mt-4 md:mt-0">2026</span>
+                            </div>
+                        </div>
+                        <div class="group cursor-pointer">
+                            <div class="relative w-full aspect-[16/9] overflow-hidden bg-[#111] mb-6">
+                                <img src="images/AI (4).png" alt="AI渲染" class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-[1.03] filter brightness-90 group-hover:brightness-100">
+                                <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
+                                    <div class="w-16 h-16 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex justify-center items-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                        <i data-lucide="arrow-right" class="text-white w-6 h-6"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-end border-b border-white/10 pb-6">
+                                <div>
+                                    <span class="font-sans text-[10px] uppercase tracking-[0.2em] text-[#A39171] mb-3 block">AI绘画</span>
+                                    <h3 class="font-display-cn text-2xl md:text-3xl font-medium tracking-wide group-hover:text-[#A39171] transition-colors">AI渲染</h3>
+                                    <p class="font-display-cn text-gray-500 mt-2 font-light">利用AI算力、提升效率</p>
+                                </div>
+                                <span class="font-display-en text-xl text-gray-600 mt-4 md:mt-0">2026</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我：杂志排版 -->
+    <section id="about" class="py-32 bg-[#0A0A0A] px-6 md:px-12">
+        <div class="container mx-auto max-w-[1400px]">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+                <!-- 16:9 人像/抽象图位 -->
+                <div class="relative aspect-[16/9] lg:aspect-[4/5] overflow-hidden group">
+                    <img src="images/jimeng-2026-04-20-4388-卡通风格，30岁戴眼镜短发男性设计师自画像，面带微笑，穿着简约设计感服装，背景是....png" alt="Portrait/Abstract" class="w-full h-full object-cover filter grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-1000">
+                    <div class="absolute top-0 left-0 w-full h-full border border-white/10 transform translate-x-4 translate-y-4 pointer-events-none"></div>
+                </div>
+                
+                <div>
+                    <div class="font-display-en flex items-center space-x-4 mb-8 text-[#A39171]">
+                        <span class="text-6xl font-light">01</span>
+                        <span class="h-[1px] w-24 bg-[#A39171]"></span>
+                        <span class="uppercase tracking-[0.2em] text-xs">Profile</span>
+                    </div>
+                    <h2 class="font-display-cn text-4xl md:text-6xl font-light mb-8 leading-[1.3]">
+                        设计不仅是视觉，<br/>更是<span class="text-[#A39171]">感知空间</span>的方式。
+                    </h2>
+                    <div class="font-display-cn text-gray-400 font-light leading-loose text-lg space-y-6">
+                        <p>你好，我是叶欣。</p>
+                        <p>作为一名致力于跨维度的设计师，我的作品穿梭于平面的精准与空间的宏大之间。从VI设计的视觉锤，到展厅与景观美陈的立体触感，再到AI前沿艺术的无界想象。</p>
+                        <p>我相信，极致的质感源于对细节的克制与对美的纯粹追求。</p>
+                    </div>
+                    
+                    <button class="mt-12 group flex items-center space-x-4 font-sans text-sm uppercase tracking-[0.2em] hover:text-[#A39171] transition-colors">
+                        <span>View Full Resume</span>
+                        <i data-lucide="arrow-down-right" class="w-4 h-4 transform group-hover:translate-x-1 group-hover:translate-y-1 transition-transform"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚：极简巨幅文字 -->
+    <footer id="contact" class="py-32 px-6 md:px-12 container mx-auto">
+        <div class="flex flex-col items-center text-center">
+            <p class="font-display-en text-[#A39171] text-xl md:text-2xl mb-6 tracking-widest uppercase">Let's craft the extraordinary.</p>
+            <a href="mailto:hello@yexindesign.com" class="font-display-en text-5xl md:text-8xl lg:text-[8rem] font-light hover:text-[#A39171] transition-colors mb-16 tracking-tight">
+                GET IN TOUCH
+            </a>
+            
+            <div class="flex space-x-12 mb-20 font-sans text-sm uppercase tracking-[0.2em]">
+                <a href="#" class="text-gray-500 hover:text-white transition-colors">wechat:y1144602760</a>
+            </div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row justify-between items-center text-xs tracking-[0.2em] text-gray-600 uppercase border-t border-white/10 pt-10 font-sans">
+            <p>© 2026 YE XIN DESIGN STUDIO.</p>
+            <p class="mt-4 md:mt-0">Design & Code by Portfolio</p>
+        </div>
+    </footer>
+
+    <!-- 交互逻辑脚本 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 初始化 Lucide 图标
+            lucide.createIcons();
+
+            // 导航栏滚动渐变效果
+            const header = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.remove('py-8', 'bg-gradient-to-b', 'from-black/50', 'to-transparent');
+                    header.classList.add('py-4', 'bg-[#050505]/90', 'backdrop-blur-md', 'border-b', 'border-white/5');
+                } else {
+                    header.classList.add('py-8', 'bg-gradient-to-b', 'from-black/50', 'to-transparent');
+                    header.classList.remove('py-4', 'bg-[#050505]/90', 'backdrop-blur-md', 'border-b', 'border-white/5');
+                }
+            });
+
+            // 滚动侦测 (Scroll Spy) 与 平滑点击逻辑
+            const categories = ['VI设计', '展厅展览', '景观美陈', '活动策划', 'AI绘画'];
+            const menuButtons = document.querySelectorAll('.category-btn');
+
+            // 切换菜单按钮状态
+            function updateActiveMenu(activeCategory) {
+                menuButtons.forEach(btn => {
+                    const line = btn.querySelector('.category-line');
+                    if (btn.dataset.category === activeCategory) {
+                        btn.classList.add('text-white');
+                        btn.classList.remove('text-gray-600', 'hover:text-gray-300');
+                        line.classList.add('bg-[#A39171]', 'w-12');
+                        line.classList.remove('bg-transparent', 'group-hover:bg-gray-600', 'w-8');
+                    } else {
+                        btn.classList.remove('text-white');
+                        btn.classList.add('text-gray-600', 'hover:text-gray-300');
+                        line.classList.remove('bg-[#A39171]', 'w-12');
+                        line.classList.add('bg-transparent', 'group-hover:bg-gray-600', 'w-8');
+                    }
+                });
+            }
+
+            // 监听滚动更新高亮菜单项
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.scrollY + 300; // 偏移量，提前触发高亮
+                
+                for (let i = categories.length - 1; i >= 0; i--) {
+                    const category = categories[i];
+                    const section = document.getElementById(`section-${category}`);
+                    if (section && section.offsetTop <= scrollPosition) {
+                        updateActiveMenu(category);
+                        break;
+                    }
+                }
+            });
+
+            // 点击菜单平滑滚动
+            menuButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const category = btn.dataset.category;
+                    const section = document.getElementById(`section-${category}`);
+                    if (section) {
+                        const offset = 120; // 顶部导航栏高度预留
+                        const top = section.offsetTop - offset;
+                        
+                        window.scrollTo({
+                            top: top,
+                            behavior: 'smooth'
+                        });
+                        
+                        updateActiveMenu(category); // 手动触发，避免滚动延迟感
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
